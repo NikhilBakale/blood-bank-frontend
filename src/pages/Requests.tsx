@@ -153,8 +153,9 @@ const Requests = () => {
       const compatibleTypes = getCompatibleDonorTypes(request.blood_type);
 
       // Fetch donations for all compatible blood types
+      // URL encode the blood types to preserve + symbols
       const response = await fetch(
-        `${API_BASE_URL}/hospital/donations/available?hospital_id=${hospitalId}&blood_types=${compatibleTypes.join(",")}`
+        `${API_BASE_URL}/hospital/donations/available?hospital_id=${hospitalId}&blood_types=${encodeURIComponent(compatibleTypes.join(","))}`
       );
 
       if (!response.ok) {
