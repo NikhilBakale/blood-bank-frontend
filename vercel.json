@@ -21,10 +21,5 @@
         }
       ]
     }
-  ],
-  "env": {
-    "VITE_AZURE_OPENAI_ENDPOINT": "@azure-openai-endpoint",
-    "VITE_AZURE_OPENAI_KEY": "@azure-openai-key",
-    "VITE_AZURE_OPENAI_DEPLOYMENT": "@azure-openai-deployment"
-  }
+  ]
 }
