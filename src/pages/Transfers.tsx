@@ -197,7 +197,7 @@ const Transfers = () => {
                             <Droplet className="h-4 w-4 text-medical-red" />
                             <span className="font-bold text-lg text-foreground/80">
                               {transfer.blood_type}
-                              <sup className="text-xs ml-0.5">{transfer.rh_factor === "positive" ? "+" : "-"}</sup>
+                              <sup className="text-xs ml-0.5">{transfer.rh_factor}</sup>
                             </span>
                           </div>
                         </TableCell>
