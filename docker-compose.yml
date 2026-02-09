@@ -1,0 +1,73 @@
+version: '3.8'
+
+services:
+  # Frontend - React App
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: blood-bank-frontend
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
+    environment:
+      - NODE_ENV=production
+    networks:
+      - blood-bank-network
+    restart: unless-stopped
+
+  # Backend - Node.js API
+  backend:
+    build:
+      context: ./server
+      dockerfile: Dockerfile
+    container_name: blood-bank-backend
+    ports:
+      - "5000:5000"
+    environment:
+      - NODE_ENV=production
+      - PORT=5000
+      # SQL Server Configuration
+      - SQL_SERVER=${SQL_SERVER}
+      - SQL_DATABASE=${SQL_DATABASE}
+      - SQL_USER=${SQL_USER}
+      - SQL_PASSWORD=${SQL_PASSWORD}
+      - SQL_PORT=${SQL_PORT:-1433}
+      # Firebase Configuration
+      - FIREBASE_PROJECT_ID=${FIREBASE_PROJECT_ID}
+      - FIREBASE_CLIENT_EMAIL=${FIREBASE_CLIENT_EMAIL}
+      - FIREBASE_PRIVATE_KEY=${FIREBASE_PRIVATE_KEY}
+      - FIREBASE_DATABASE_URL=${FIREBASE_DATABASE_URL}
+      # Azure Cosmos DB Configuration (optional)
+      - COSMOS_ENDPOINT=${COSMOS_ENDPOINT}
+      - COSMOS_KEY=${COSMOS_KEY}
+      - COSMOS_DATABASE=${COSMOS_DATABASE}
+      # Email Configuration
+      - EMAIL_HOST=${EMAIL_HOST}
+      - EMAIL_PORT=${EMAIL_PORT}
+      - EMAIL_USER=${EMAIL_USER}
+      - EMAIL_PASSWORD=${EMAIL_PASSWORD}
+      - EMAIL_FROM=${EMAIL_FROM}
+      # JWT Secret
+      - JWT_SECRET=${JWT_SECRET}
+    env_file:
+      - ./server/.env
+    volumes:
+      - ./server/logs:/usr/src/app/logs
+    networks:
+      - blood-bank-network
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "node", "-e", "require('http').get('http://localhost:5000/health', (r) => {process.exit(r.statusCode === 200 ? 0 : 1)})"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 60s
+
+networks:
+  blood-bank-network:
+    driver: bridge
+
+volumes:
+  logs:

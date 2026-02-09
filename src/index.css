@@ -1,0 +1,138 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Professional Medical Theme: Clean Blues, Soft Grays, Crisp Whites */
+    --background: 210 40% 98%;
+    /* Slightly cooler white */
+    --foreground: 222 47% 11%;
+    /* Deep navy for text - easier on eyes than black */
+
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
+
+    /* Primary: Trustworthy Medical Blue */
+    --primary: 215 90% 45%;
+    --primary-foreground: 210 40% 98%;
+
+    /* Secondary: Soft Gray/Blue for backgrounds */
+    --secondary: 210 40% 96%;
+    --secondary-foreground: 222 47% 11%;
+
+    --muted: 210 40% 96%;
+    --muted-foreground: 215 16% 47%;
+
+    --accent: 210 40% 96%;
+    --accent-foreground: 222 47% 11%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: 215 90% 45%;
+
+    --radius: 0.75rem;
+
+    /* Semantic Colors */
+    --medical-red: 350 89% 60%;
+    /* Softer red for medical alerts */
+    --medical-blue: 215 90% 45%;
+    --success: 150 80% 35%;
+    /* Modern vibrant green */
+    --warning: 35 95% 55%;
+
+    /* Sidebar - Glassy/Clean Look */
+    --sidebar-background: 0 0% 100%;
+    --sidebar-foreground: 222 47% 11%;
+    --sidebar-primary: 215 90% 45%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 210 40% 96%;
+    --sidebar-accent-foreground: 222 47% 11%;
+    --sidebar-border: 214 32% 91%;
+    --sidebar-ring: 215 90% 45%;
+  }
+
+  .dark {
+    --background: 222 47% 11%;
+    /* Deep Navy Background */
+    --foreground: 210 40% 98%;
+
+    --card: 217 33% 17%;
+    /* Slightly lighter navy for cards */
+    --card-foreground: 210 40% 98%;
+
+    --popover: 217 33% 17%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 215 90% 45%;
+    /* Keep primary consistent or slight adjust for dark mode contrast */
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 217 33% 17%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217 33% 17%;
+    --muted-foreground: 215 20% 65%;
+
+    --accent: 217 33% 17%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62% 30%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217 33% 20%;
+    --input: 217 33% 20%;
+    --ring: 215 90% 45%;
+
+    --medical-red: 350 89% 60%;
+    --medical-blue: 215 90% 55%;
+    --success: 150 80% 45%;
+    --warning: 35 95% 60%;
+
+    --sidebar-background: 222 47% 11%;
+    --sidebar-foreground: 210 40% 98%;
+    --sidebar-primary: 215 90% 45%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 217 33% 17%;
+    --sidebar-accent-foreground: 210 40% 98%;
+    --sidebar-border: 217 33% 20%;
+    --sidebar-ring: 215 90% 45%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    background-image: radial-gradient(hsl(var(--primary) / 0.1) 1px, transparent 1px);
+    background-size: 32px 32px;
+  }
+}
+
+@layer components {
+  .glass-panel {
+    @apply bg-white/80 backdrop-blur-sm border border-white/20 shadow-sm hover:shadow-md transition-all duration-200;
+  }
+
+  .tech-border {
+    @apply relative overflow-hidden;
+  }
+
+  .tech-border::after {
+    content: '';
+    @apply absolute top-0 left-0 w-1 h-full bg-primary/20;
+  }
+}

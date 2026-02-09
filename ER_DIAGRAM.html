@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blood Inventory Management - ER Diagram</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        .diagram-container {
+            background-color: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            overflow-x: auto;
+        }
+        svg {
+            display: block;
+            margin: 0 auto;
+        }
+        .entity {
+            fill: #e3f2fd;
+            stroke: #1976d2;
+            stroke-width: 2;
+        }
+        .entity-text {
+            font-size: 14px;
+            font-weight: bold;
+            text-anchor: middle;
+            fill: #1976d2;
+        }
+        .attribute {
+            fill: #fff9c4;
+            stroke: #f57c00;
+            stroke-width: 1.5;
+        }
+        .attribute-text {
+            font-size: 11px;
+            text-anchor: middle;
+            fill: #333;
+        }
+        .key-attribute {
+            text-decoration: underline;
+            font-weight: bold;
+        }
+        .relationship {
+            fill: #ffccbc;
+            stroke: #d84315;
+            stroke-width: 2;
+        }
+        .relationship-text {
+            font-size: 12px;
+            font-weight: bold;
+            text-anchor: middle;
+            fill: #d84315;
+        }
+        .line {
+            stroke: #333;
+            stroke-width: 2;
+            fill: none;
+        }
+        .cardinality {
+            font-size: 12px;
+            font-weight: bold;
+            fill: #d84315;
+        }
+        .legend {
+            margin-top: 30px;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        .legend h3 {
+            margin-top: 0;
+            color: #333;
+        }
+        .legend-item {
+            margin: 10px 0;
+            display: flex;
+            align-items: center;
+        }
+        .legend-symbol {
+            width: 60px;
+            height: 30px;
+            margin-right: 10px;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Blood Inventory Management System - ER Diagram</h1>
+    
+    <div class="diagram-container">
+        <svg width="1600" height="1800" viewBox="0 0 1600 1800">
+            <!-- HOSPITALS ENTITY -->
+            <rect x="50" y="100" width="200" height="60" class="entity"/>
+            <text x="150" y="135" class="entity-text">HOSPITALS</text>
+            
+            <!-- Hospitals Attributes -->
+            <ellipse cx="50" cy="50" rx="60" ry="25" class="attribute"/>
+            <text x="50" y="55" class="attribute-text key-attribute">hospital_id</text>
+            
+            <ellipse cx="150" cy="30" rx="65" ry="25" class="attribute"/>
+            <text x="150" y="35" class="attribute-text">hospital_name</text>
+            
+            <ellipse cx="260" cy="50" rx="35" ry="25" class="attribute"/>
+            <text x="260" y="55" class="attribute-text">email</text>
+            
+            <ellipse cx="310" cy="100" rx="35" ry="25" class="attribute"/>
+            <text x="310" y="105" class="attribute-text">phone</text>
+            
+            <ellipse cx="310" cy="160" rx="45" ry="25" class="attribute"/>
+            <text x="310" y="165" class="attribute-text">address</text>
+            
+            <ellipse cx="260" cy="210" rx="30" ry="25" class="attribute"/>
+            <text x="260" y="215" class="attribute-text">city</text>
+            
+            <ellipse cx="150" cy="230" rx="30" ry="25" class="attribute"/>
+            <text x="150" y="235" class="attribute-text">state</text>
+            
+            <ellipse cx="40" cy="210" rx="50" ry="25" class="attribute"/>
+            <text x="40" y="215" class="attribute-text">created_at</text>
+            
+            <ellipse cx="-10" cy="160" rx="55" ry="25" class="attribute"/>
+            <text x="-10" y="165" class="attribute-text">updated_at</text>
+            
+            <!-- Lines from Hospital to Attributes -->
+            <line x1="150" y1="100" x2="80" y2="65" class="line"/>
+            <line x1="150" y1="100" x2="150" y2="55" class="line"/>
+            <line x1="150" y1="100" x2="235" y2="65" class="line"/>
+            <line x1="200" y1="130" x2="280" y2="110" class="line"/>
+            <line x1="220" y1="160" x2="270" y2="160" class="line"/>
+            <line x1="180" y1="160" x2="232" y2="198" class="line"/>
+            <line x1="150" y1="160" x2="150" y2="205" class="line"/>
+            <line x1="100" y1="160" x2="75" y2="195" class="line"/>
+            <line x1="70" y1="140" x2="35" y2="155" class="line"/>
+
+            <!-- DONORS ENTITY -->
+            <rect x="450" y="450" width="200" height="60" class="entity"/>
+            <text x="550" y="485" class="entity-text">DONORS</text>
+            
+            <!-- Donors Attributes -->
+            <ellipse cx="420" cy="380" rx="50" ry="25" class="attribute"/>
+            <text x="420" y="385" class="attribute-text key-attribute">donor_id</text>
+            
+            <ellipse cx="520" cy="360" rx="55" ry="25" class="attribute"/>
+            <text x="520" y="365" class="attribute-text">first_name</text>
+            
+            <ellipse cx="620" cy="380" rx="55" ry="25" class="attribute"/>
+            <text x="620" y="385" class="attribute-text">last_name</text>
+            
+            <ellipse cx="710" cy="430" rx="65" ry="25" class="attribute"/>
+            <text x="710" y="435" class="attribute-text">date_of_birth</text>
+            
+            <ellipse cx="720" cy="490" rx="45" ry="25" class="attribute"/>
+            <text x="720" y="495" class="attribute-text">gender</text>
+            
+            <ellipse cx="700" cy="550" rx="35" ry="25" class="attribute"/>
+            <text x="700" y="555" class="attribute-text">phone</text>
+            
+            <ellipse cx="620" cy="590" rx="35" ry="25" class="attribute"/>
+            <text x="620" y="595" class="attribute-text">email</text>
+            
+            <ellipse cx="520" cy="610" rx="45" ry="25" class="attribute"/>
+            <text x="520" y="615" class="attribute-text">address</text>
+            
+            <ellipse cx="420" cy="600" rx="30" ry="25" class="attribute"/>
+            <text x="420" y="605" class="attribute-text">city</text>
+            
+            <ellipse cx="350" cy="560" rx="30" ry="25" class="attribute"/>
+            <text x="350" y="565" class="attribute-text">state</text>
+            
+            <ellipse cx="320" cy="500" rx="55" ry="25" class="attribute"/>
+            <text x="320" y="505" class="attribute-text">postal_code</text>
+            
+            <ellipse cx="340" cy="430" rx="50" ry="25" class="attribute"/>
+            <text x="340" y="435" class="attribute-text">created_at</text>
+            
+            <ellipse cx="380" cy="360" rx="55" ry="25" class="attribute"/>
+            <text x="380" y="365" class="attribute-text">updated_at</text>
+            
+            <!-- Lines from Donors to Attributes -->
+            <line x1="520" y1="450" x2="455" y2="395" class="line"/>
+            <line x1="540" y1="450" x2="525" y2="385" class="line"/>
+            <line x1="585" y1="450" x2="600" y2="400" class="line"/>
+            <line x1="650" y1="465" x2="670" y2="445" class="line"/>
+            <line x1="650" y1="485" x2="680" y2="495" class="line"/>
+            <line x1="635" y1="510" x2="675" y2="540" class="line"/>
+            <line x1="605" y1="510" x2="610" y2="570" class="line"/>
+            <line x1="560" y1="510" x2="535" y2="590" class="line"/>
+            <line x1="480" y1="510" x2="435" y2="580" class="line"/>
+            <line x1="450" y1="500" x2="375" y2="550" class="line"/>
+            <line x1="450" y1="475" x2="365" y2="510" class="line"/>
+            <line x1="450" y1="458" x2="375" y2="440" class="line"/>
+            <line x1="480" y1="450" x2="415" y2="380" class="line"/>
+
+            <!-- DONATIONS ENTITY -->
+            <rect x="950" y="750" width="200" height="60" class="entity"/>
+            <text x="1050" y="785" class="entity-text">DONATIONS</text>
+            
+            <!-- Donations Attributes -->
+            <ellipse cx="900" cy="680" rx="50" ry="25" class="attribute"/>
+            <text x="900" y="685" class="attribute-text key-attribute">blood_id</text>
+            
+            <ellipse cx="1020" cy="660" rx="55" ry="25" class="attribute"/>
+            <text x="1020" y="665" class="attribute-text">blood_type</text>
+            
+            <ellipse cx="1130" cy="680" rx="50" ry="25" class="attribute"/>
+            <text x="1130" y="685" class="attribute-text">rh_factor</text>
+            
+            <ellipse cx="1230" cy="730" rx="75" ry="25" class="attribute"/>
+            <text x="1230" y="735" class="attribute-text">component_type</text>
+            
+            <ellipse cx="1240" cy="800" rx="55" ry="25" class="attribute"/>
+            <text x="1240" y="805" class="attribute-text">volume_ml</text>
+            
+            <ellipse cx="1230" cy="870" rx="75" ry="25" class="attribute"/>
+            <text x="1230" y="875" class="attribute-text">collection_date</text>
+            
+            <ellipse cx="1130" cy="920" rx="60" ry="25" class="attribute"/>
+            <text x="1130" y="925" class="attribute-text">expiry_date</text>
+            
+            <ellipse cx="1020" cy="940" rx="40" ry="25" class="attribute"/>
+            <text x="1020" y="945" class="attribute-text">status</text>
+            
+            <ellipse cx="900" cy="920" rx="80" ry="25" class="attribute"/>
+            <text x="900" y="925" class="attribute-text">storage_location</text>
+            
+            <ellipse cx="790" cy="870" rx="70" ry="25" class="attribute"/>
+            <text x="790" y="875" class="attribute-text">test_result_hiv</text>
+            
+            <ellipse cx="780" cy="800" rx="75" ry="25" class="attribute"/>
+            <text x="780" y="805" class="attribute-text">test_result_hbsag</text>
+            
+            <ellipse cx="790" cy="730" rx="70" ry="25" class="attribute"/>
+            <text x="790" y="735" class="attribute-text">test_result_hcv</text>
+            
+            <ellipse cx="800" cy="680" rx="80" ry="25" class="attribute"/>
+            <text x="800" y="685" class="attribute-text">test_result_syphilis</text>
+            
+            <ellipse cx="900" cy="650" rx="50" ry="25" class="attribute"/>
+            <text x="900" y="655" class="attribute-text">created_at</text>
+            
+            <ellipse cx="1130" cy="650" rx="55" ry="25" class="attribute"/>
+            <text x="1130" y="655" class="attribute-text">updated_at</text>
+            
+            <!-- Lines from Donations to Attributes -->
+            <line x1="1000" y1="750" x2="935" y2="695" class="line"/>
+            <line x1="1035" y1="750" x2="1020" y2="685" class="line"/>
+            <line x1="1085" y1="750" x2="1110" y2="695" class="line"/>
+            <line x1="1150" y1="760" x2="1195" y2="745" class="line"/>
+            <line x1="1150" y1="785" x2="1195" y2="800" class="line"/>
+            <line x1="1135" y1="810" x2="1190" y2="855" class="line"/>
+            <line x1="1100" y1="810" x2="1115" y2="900" class="line"/>
+            <line x1="1050" y1="810" x2="1045" y2="918" class="line"/>
+            <line x1="990" y1="810" x2="940" y2="905" class="line"/>
+            <line x1="950" y1="795" x2="840" y2="855" class="line"/>
+            <line x1="950" y1="780" x2="835" y2="810" class="line"/>
+            <line x1="950" y1="760" x2="845" y2="740" class="line"/>
+            <line x1="960" y1="750" x2="865" y2="695" class="line"/>
+            <line x1="990" y1="750" x2="925" y2="665" class="line"/>
+            <line x1="1090" y1="750" x2="1115" y2="670" class="line"/>
+
+            <!-- BLOOD_REQUESTS ENTITY -->
+            <rect x="450" cy="1050" width="200" height="60" class="entity"/>
+            <text x="550" y="1085" class="entity-text">BLOOD_REQUESTS</text>
+            
+            <!-- Blood Requests Attributes -->
+            <ellipse cx="500" cy="980" rx="55" ry="25" class="attribute"/>
+            <text x="500" y="985" class="attribute-text key-attribute">request_id</text>
+            
+            <ellipse cx="620" cy="980" rx="55" ry="25" class="attribute"/>
+            <text x="620" y="985" class="attribute-text">blood_type</text>
+            
+            <ellipse cx="720" cy="1050" rx="60" ry="25" class="attribute"/>
+            <text x="720" y="1055" class="attribute-text">units_needed</text>
+            
+            <ellipse cx="720" cy="1120" rx="50" ry="25" class="attribute"/>
+            <text x="720" y="1125" class="attribute-text">urgency</text>
+            
+            <ellipse cx="620" cy="1180" rx="40" ry="25" class="attribute"/>
+            <text x="620" y="1185" class="attribute-text">status</text>
+            
+            <ellipse cx="500" cy="1180" rx="50" ry="25" class="attribute"/>
+            <text x="500" y="1185" class="attribute-text">created_at</text>
+            
+            <ellipse cx="380" cy="1180" rx="35" ry="25" class="attribute"/>
+            <text x="380" y="1185" class="attribute-text">notes</text>
+            
+            <ellipse cx="320" cy="1120" rx="50" ry="25" class="attribute"/>
+            <text x="320" y="1125" class="attribute-text">rh_factor</text>
+            
+            <ellipse cx="320" cy="1050" rx="75" ry="25" class="attribute"/>
+            <text x="320" y="1055" class="attribute-text">component_type</text>
+            
+            <!-- Lines from Blood Requests to Attributes -->
+            <line x1="500" y1="1050" x2="510" y2="1000" class="line"/>
+            <line x1="580" y1="1050" x2="605" y2="1000" class="line"/>
+            <line x1="650" y1="1065" x2="685" y2="1065" class="line"/>
+            <line x1="650" y1="1095" x2="690" y2="1112" class="line"/>
+            <line x1="610" y1="1110" x2="605" y2="1160" class="line"/>
+            <line x1="540" y1="1110" x2="520" y2="1160" class="line"/>
+            <line x1="470" y1="1110" x2="405" y2="1165" class="line"/>
+            <line x1="450" y1="1095" x2="355" y2="1115" class="line"/>
+            <line x1="450" y1="1070" x2="380" y2="1060" class="line"/>
+
+            <!-- TRANSFERS ENTITY -->
+            <rect x="950" y="1350" width="200" height="60" class="entity"/>
+            <text x="1050" y="1385" class="entity-text">TRANSFERS</text>
+            
+            <!-- Transfers Attributes -->
+            <ellipse cx="920" cy="1280" rx="55" ry="25" class="attribute"/>
+            <text x="920" y="1285" class="attribute-text key-attribute">transfer_id</text>
+            
+            <ellipse cx="1050" cy="1260" rx="55" ry="25" class="attribute"/>
+            <text x="1050" y="1265" class="attribute-text">blood_type</text>
+            
+            <ellipse cx="1170" cy="1280" rx="50" ry="25" class="attribute"/>
+            <text x="1170" y="1285" class="attribute-text">rh_factor</text>
+            
+            <ellipse cx="1250" cy="1340" rx="75" ry="25" class="attribute"/>
+            <text x="1250" y="1345" class="attribute-text">component_type</text>
+            
+            <ellipse cx="1250" cy="1400" rx="55" ry="25" class="attribute"/>
+            <text x="1250" y="1405" class="attribute-text">volume_ml</text>
+            
+            <ellipse cx="1220" cy="1470" rx="80" ry="25" class="attribute"/>
+            <text x="1220" y="1475" class="attribute-text">recipient_name</text>
+            
+            <ellipse cx="1100" cy="1520" rx="85" ry="25" class="attribute"/>
+            <text x="1100" y="1525" class="attribute-text">recipient_contact</text>
+            
+            <ellipse cx="960" cy="1530" rx="70" ry="25" class="attribute"/>
+            <text x="960" y="1535" class="attribute-text">transfer_date</text>
+            
+            <ellipse cx="840" cy="1500" rx="35" ry="25" class="attribute"/>
+            <text x="840" y="1505" class="attribute-text">notes</text>
+            
+            <ellipse cx="780" cy="1440" rx="50" ry="25" class="attribute"/>
+            <text x="780" y="1445" class="attribute-text">created_at</text>
+            
+            <ellipse cx="800" cy="1360" rx="55" ry="25" class="attribute"/>
+            <text x="800" y="1365" class="attribute-text">updated_at</text>
+            
+            <!-- Lines from Transfers to Attributes -->
+            <line x1="990" y1="1350" x2="950" y2="1298" class="line"/>
+            <line x1="1030" y1="1350" x2="1040" y2="1283" class="line"/>
+            <line x1="1100" y1="1350" x2="1145" y2="1298" class="line"/>
+            <line x1="1150" y1="1365" x2="1205" y2="1352" class="line"/>
+            <line x1="1150" y1="1390" x2="1205" y2="1395" class="line"/>
+            <line x1="1125" y1="1410" x2="1170" y2="1458" class="line"/>
+            <line x1="1075" y1="1410" x2="1075" y2="1498" class="line"/>
+            <line x1="1010" y1="1410" x2="995" y2="1510" class="line"/>
+            <line x1="970" y1="1410" x2="865" y2="1490" class="line"/>
+            <line x1="950" y1="1395" x2="820" y2="1445" class="line"/>
+            <line x1="950" y1="1370" x2="845" y2="1368" class="line"/>
+
+            <!-- REGISTERED_DONORS ENTITY -->
+            <rect x="50" y="1550" width="200" height="60" class="entity"/>
+            <text x="150" y="1585" class="entity-text">REGISTERED_DONORS</text>
+            
+            <!-- Registered Donors Attributes -->
+            <ellipse cx="100" cy="1480" rx="75" ry="25" class="attribute"/>
+            <text x="100" y="1485" class="attribute-text key-attribute">registered_donor_id</text>
+            
+            <ellipse cx="230" cy="1480" rx="40" ry="25" class="attribute"/>
+            <text x="230" y="1485" class="attribute-text">name</text>
+            
+            <ellipse cx="310" cy="1540" rx="55" ry="25" class="attribute"/>
+            <text x="310" y="1545" class="attribute-text">blood_type</text>
+            
+            <ellipse cx="310" cy="1600" rx="35" ry="25" class="attribute"/>
+            <text x="310" y="1605" class="attribute-text">phone</text>
+            
+            <ellipse cx="270" cy="1660" rx="35" ry="25" class="attribute"/>
+            <text x="270" y="1665" class="attribute-text">email</text>
+            
+            <ellipse cx="150" cy="1690" rx="85" ry="25" class="attribute"/>
+            <text x="150" y="1695" class="attribute-text">last_donation_date</text>
+            
+            <ellipse cx="30" cy="1660" rx="50" ry="25" class="attribute"/>
+            <text x="30" y="1665" class="attribute-text">created_at</text>
+            
+            <!-- Lines from Registered Donors to Attributes -->
+            <line x1="120" y1="1550" x2="115" y2="1502" class="line"/>
+            <line x1="200" y1="1550" x2="215" y2="1500" class="line"/>
+            <line x1="250" y1="1565" x2="285" y2="1552" class="line"/>
+            <line x1="250" y1="1590" x2="285" y2="1598" class="line"/>
+            <line x1="220" y1="1610" x2="250" y2="1648" class="line"/>
+            <line x1="150" y1="1610" x2="150" y2="1668" class="line"/>
+            <line x1="80" y1="1610" x2="60" y2="1648" class="line"/>
+
+            <!-- RELATIONSHIPS -->
+            
+            <!-- Manages Relationship (Hospital - Donors) -->
+            <path d="M 250 130 L 450 480" class="line"/>
+            <polygon points="250,130 160,160 100,160" fill="#d84315"/>
+            <text x="290" y="300" class="relationship-text">Manages</text>
+            <text x="260" y="150" class="cardinality">1</text>
+            <text x="430" y="470" class="cardinality">N</text>
+            
+            <!-- Stores Relationship (Hospital - Donations) -->
+            <path d="M 250 130 L 950 780" class="line"/>
+            <text x="580" y="440" class="relationship-text">Stores</text>
+            <text x="270" y="140" class="cardinality">1</text>
+            <text x="930" y="770" class="cardinality">N</text>
+            
+            <!-- Donates Relationship (Donors - Donations) -->
+            <path d="M 600 510 L 950 750" class="line"/>
+            <text x="760" y="620" class="relationship-text">Donates</text>
+            <text x="620" y="520" class="cardinality">1</text>
+            <text x="930" y="740" class="cardinality">N</text>
+            
+            <!-- Requests Relationship (Hospital - Blood Requests) -->
+            <path d="M 200 160 L 450 1050" class="line"/>
+            <text x="310" y="600" class="relationship-text">Requests</text>
+            <text x="220" y="180" class="cardinality">1</text>
+            <text x="430" y="1040" class="cardinality">N</text>
+            
+            <!-- Fulfills Relationship (Donations - Transfers) -->
+            <path d="M 1050 810 L 1050 1350" class="line"/>
+            <text x="1080" y="1080" class="relationship-text">Fulfills</text>
+            <text x="1030" y="830" class="cardinality">1</text>
+            <text x="1030" y="1340" class="cardinality">N</text>
+            
+            <!-- Tracks Relationship (Blood Request - Transfers) -->
+            <path d="M 650 1080 L 950 1380" class="line"/>
+            <text x="790" y="1220" class="relationship-text">Tracks</text>
+            <text x="670" y="1090" class="cardinality">1</text>
+            <text x="930" y="1370" class="cardinality">N</text>
+            
+            <!-- Registers Relationship (Hospital - Registered Donors) -->
+            <path d="M 150 160 L 150 1550" class="line"/>
+            <text x="170" y="850" class="relationship-text">Registers</text>
+            <text x="130" y="180" class="cardinality">1</text>
+            <text x="130" y="1540" class="cardinality">N</text>
+        </svg>
+    </div>
+    
+    <div class="legend">
+        <h3>Legend</h3>
+        <div class="legend-item">
+            <div class="legend-symbol" style="background: #e3f2fd; border: 2px solid #1976d2;"></div>
+            <span><strong>Rectangles</strong> - Entities (e.g., HOSPITALS, DONORS)</span>
+        </div>
+        <div class="legend-item">
+            <div class="legend-symbol" style="background: #fff9c4; border: 1.5px solid #f57c00; border-radius: 50%;"></div>
+            <span><strong>Ovals</strong> - Attributes (e.g., hospital_id, name)</span>
+        </div>
+        <div class="legend-item">
+            <div class="legend-symbol" style="background: #ffccbc; border: 2px solid #d84315; transform: rotate(45deg);"></div>
+            <span><strong>Diamonds</strong> - Relationships (e.g., Manages, Stores) - shown as text labels with connecting lines</span>
+        </div>
+        <div class="legend-item">
+            <span style="text-decoration: underline; font-weight: bold; margin-right: 10px;">Underlined</span>
+            <span><strong>Primary Keys</strong> - Unique identifiers (e.g., hospital_id, donor_id)</span>
+        </div>
+        <div class="legend-item">
+            <span style="font-weight: bold; color: #d84315; margin-right: 10px;">1, N</span>
+            <span><strong>Cardinality</strong> - 1 = One, N = Many (e.g., One hospital manages many donors)</span>
+        </div>
+    </div>
+
+    <div class="legend" style="margin-top: 20px;">
+        <h3>Entity Relationships Summary</h3>
+        <ul>
+            <li><strong>HOSPITALS</strong> manages multiple <strong>DONORS</strong> (1:N)</li>
+            <li><strong>HOSPITALS</strong> stores multiple <strong>DONATIONS</strong> (1:N)</li>
+            <li><strong>DONORS</strong> donates multiple <strong>DONATIONS</strong> (1:N)</li>
+            <li><strong>HOSPITALS</strong> makes multiple <strong>BLOOD_REQUESTS</strong> (1:N)</li>
+            <li><strong>DONATIONS</strong> fulfills multiple <strong>TRANSFERS</strong> (1:N)</li>
+            <li><strong>BLOOD_REQUESTS</strong> tracks multiple <strong>TRANSFERS</strong> (1:N)</li>
+            <li><strong>HOSPITALS</strong> registers multiple <strong>REGISTERED_DONORS</strong> (1:N)</li>
+        </ul>
+        <p><strong>Note:</strong> Foreign key attributes are not shown in the ER diagram as per requirements. They are only present in the relational schema.</p>
+    </div>
+</body>
+</html>
